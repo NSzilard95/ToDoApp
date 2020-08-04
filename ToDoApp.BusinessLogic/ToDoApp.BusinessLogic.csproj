@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ToDoApp.BusinessEntity\ToDoApp.BusinessEntity.csproj" />
+    <ProjectReference Include="..\ToDoApp.Data\ToDoApp.Data.csproj" />
   </ItemGroup>
 
 </Project>

@@ -14,5 +14,16 @@
         /// Gets or sets whether the entity is deleted.
         /// </summary>
         public bool IsDeleted { get; set; }
+
+        /// <summary>
+        /// Delete entity logically.
+        /// </summary>
+        /// <returns></returns>
+        public virtual BaseEntity Delete()
+        {
+            IsDeleted = true;
+
+            return this;
+        }
     }
 }
