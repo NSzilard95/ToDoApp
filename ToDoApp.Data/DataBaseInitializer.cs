@@ -24,7 +24,8 @@ namespace ToDoApp.Data
                     defaultTasks.Add(new ToDoTask
                     {
                          Text = "Todo task " + i,
-                         IsDone = false
+                         IsDone = false,
+                         IsDeleted = false
                     });
                 }
 
