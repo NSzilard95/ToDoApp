@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.WebServer", "ToDoApp.WebServer\ToDoApp.WebServer.csproj", "{92684C05-E319-4F9B-BFF6-B486F3210074}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.WebServer", "ToDoApp.WebServer\ToDoApp.WebServer.csproj", "{92684C05-E319-4F9B-BFF6-B486F3210074}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.BusinessEntity", "ToDoApp.BusinessEntity\ToDoApp.BusinessEntity.csproj", "{EB80E5BF-40F1-4F58-94AC-FD14B1C16719}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.BusinessLogic", "ToDoApp.BusinessLogic\ToDoApp.BusinessLogic.csproj", "{FB2B391D-3366-43EB-9AE1-D95CF97C90B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Data", "ToDoApp.Data\ToDoApp.Data.csproj", "{3CD23DB2-0891-4A10-AE55-602A503BDFEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{92684C05-E319-4F9B-BFF6-B486F3210074}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92684C05-E319-4F9B-BFF6-B486F3210074}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92684C05-E319-4F9B-BFF6-B486F3210074}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB80E5BF-40F1-4F58-94AC-FD14B1C16719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB80E5BF-40F1-4F58-94AC-FD14B1C16719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB80E5BF-40F1-4F58-94AC-FD14B1C16719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB80E5BF-40F1-4F58-94AC-FD14B1C16719}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB2B391D-3366-43EB-9AE1-D95CF97C90B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB2B391D-3366-43EB-9AE1-D95CF97C90B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB2B391D-3366-43EB-9AE1-D95CF97C90B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB2B391D-3366-43EB-9AE1-D95CF97C90B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CD23DB2-0891-4A10-AE55-602A503BDFEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CD23DB2-0891-4A10-AE55-602A503BDFEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CD23DB2-0891-4A10-AE55-602A503BDFEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CD23DB2-0891-4A10-AE55-602A503BDFEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
