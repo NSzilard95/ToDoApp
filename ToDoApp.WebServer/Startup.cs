@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ToDoApp.BusinessLogic.Service;
+using ToDoApp.BusinessLogic.Service.Interface;
 using ToDoApp.Data;
 
 namespace ToDoApp.WebServer
@@ -21,6 +23,9 @@ namespace ToDoApp.WebServer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ToDoAppDataBase>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlConString")));
+            services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+            services.AddScoped(typeof(IService<>), typeof(BaseService<>));
+            services.AddScoped(typeof(IToDoTaskService), typeof(ToDoTaskService));
             services.AddControllers();
         }
 
