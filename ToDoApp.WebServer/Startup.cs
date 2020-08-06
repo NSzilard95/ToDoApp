@@ -39,7 +39,9 @@ namespace ToDoApp.WebServer
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
+
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
@@ -51,7 +53,7 @@ namespace ToDoApp.WebServer
                 var context = serviceScope.ServiceProvider.GetRequiredService<ToDoAppDataBase>();
                 context.Database.EnsureCreated();
                 context.InitDefaultDatas();
-            }
+            }            
         }
     }
 }
