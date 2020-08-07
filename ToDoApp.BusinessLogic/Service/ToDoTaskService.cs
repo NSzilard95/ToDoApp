@@ -1,4 +1,6 @@
-﻿using ToDoApp.BusinessEntity.Model;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using ToDoApp.BusinessEntity.Model;
 using ToDoApp.BusinessLogic.Service.Interface;
 
 namespace ToDoApp.BusinessLogic.Service
@@ -21,6 +23,42 @@ namespace ToDoApp.BusinessLogic.Service
             : base(repository)
         {
             this.repository = repository;
+        }
+
+        /// <summary>
+        /// Queries todos by query type.
+        /// </summary>
+        /// <param name="listQueryType">The query type.</param>
+        /// <returns></returns>
+        public async Task<IEnumerable<ToDoTask>> QueryByType(ListQueryType listQueryType)
+        {
+            var result = new List<ToDoTask>();
+
+            switch (listQueryType)
+            {
+                case ListQueryType.All:
+                {
+                    result = await this.GetByAsync(x => !x.IsDeleted).ConfigureAwait(false);
+                    break;
+                }
+                case ListQueryType.InProgress:
+                {
+                    result = await this.GetByAsync(x => !x.IsDeleted && !x.IsDone).ConfigureAwait(false);
+                    break;
+                }
+                case ListQueryType.Done:
+                {
+                    result = await this.GetByAsync(x => !x.IsDeleted && x.IsDone).ConfigureAwait(false);
+                    break;
+                }
+                default:
+                {
+                    result = await this.GetByAsync(x => !x.IsDeleted).ConfigureAwait(false);
+                    break;
+                }
+            }
+
+            return result;
         }
     }
 }

@@ -19,13 +19,13 @@ namespace ToDoApp.Data
             {
                 var defaultTasks = new List<ToDoTask>();
 
-                for (int i = 1; i <= 3; i++)
+                for (int i = 1; i <= 30; i++)
                 {
                     defaultTasks.Add(new ToDoTask
                     {
                          Text = "Todo task " + i,
-                         IsDone = false,
-                         IsDeleted = false
+                         IsDone = i % 2 == 0,
+                         IsDeleted = i % 10 == 0
                     });
                 }
 

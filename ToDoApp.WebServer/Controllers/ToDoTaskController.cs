@@ -31,12 +31,12 @@ namespace ToDoApp.WebServer.Controllers
         /// The get all API.
         /// </summary>
         /// <returns>All entities.</returns>
-        [HttpGet]
-        public async Task<IActionResult> GetAsync()
+        [HttpGet("GetForList/{listQueryType}")]
+        public async Task<IActionResult> GetAsync(ListQueryType listQueryType)
         {
             try
             {
-                var result = await toDoTaskService.GetAllAsync().ConfigureAwait(false);
+                var result = await toDoTaskService.QueryByType(listQueryType).ConfigureAwait(false);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -118,25 +118,6 @@ namespace ToDoApp.WebServer.Controllers
             catch (Exception ex)
             {
                 return BadRequest("Error occured at deleting data.");
-            }
-        }
-
-        /// <summary>
-        /// The delete physical API.
-        /// </summary>
-        /// <param name="id">The entity indentifier.</param>
-        /// <returns>Deleted entity.</returns>
-        [HttpDelete("deletePhysical/{id}")]
-        public async Task<IActionResult> DeletePhysicalAsync(long id)
-        {
-            try
-            {
-                var deletedEntity = await toDoTaskService.DeletePhysicalAsync(id).ConfigureAwait(false);
-                return this.Ok(deletedEntity);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest("Error occured at deleting data physically.");
             }
         }
     }
