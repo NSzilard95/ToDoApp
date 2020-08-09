@@ -16,5 +16,16 @@ namespace ToDoApp.BusinessEntity.Model
         /// Gets or sets whether the entity is done.
         /// </summary>
         public bool IsDone { get; set; }
+
+        /// <summary>
+        /// Set todo task done.
+        /// </summary>
+        /// <returns></returns>
+        public ToDoTask SetDone()
+        {
+            this.IsDone = true;
+
+            return this;
+        }
     }
 }

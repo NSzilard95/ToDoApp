@@ -28,18 +28,19 @@ namespace ToDoApp.WebServer.Controllers
         }
 
         /// <summary>
-        /// The get all API.
+        /// Queries todos by query type.
         /// </summary>
-        /// <returns>All entities.</returns>
+        /// <param name="listQueryType">The query type.</param>
+        /// <returns></returns>
         [HttpGet("GetForList/{listQueryType}")]
-        public async Task<IActionResult> GetAsync(ListQueryType listQueryType)
+        public async Task<IActionResult> GetByTypeAsync(ListQueryType listQueryType)
         {
             try
             {
-                var result = await toDoTaskService.QueryByType(listQueryType).ConfigureAwait(false);
+                var result = await toDoTaskService.QueryByTypeAsync(listQueryType).ConfigureAwait(false);
                 return Ok(result);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return BadRequest("Error occured at data load.");
             }
@@ -58,7 +59,7 @@ namespace ToDoApp.WebServer.Controllers
                 var result = await toDoTaskService.GetByIdAsync(id).ConfigureAwait(false);
                 return Ok(result);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return BadRequest("Error occured at data load.");
             }
@@ -77,7 +78,7 @@ namespace ToDoApp.WebServer.Controllers
                 var addedEntity = await toDoTaskService.AddAsync(entity).ConfigureAwait(false);
                 return this.Ok(addedEntity);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return BadRequest("Error occured at data saving.");
             }
@@ -96,7 +97,7 @@ namespace ToDoApp.WebServer.Controllers
                 var updatedEntity = await toDoTaskService.UpdateAsync(entity).ConfigureAwait(false);
                 return this.Ok(updatedEntity);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return BadRequest("Error occured at data saving.");
             }
@@ -115,10 +116,30 @@ namespace ToDoApp.WebServer.Controllers
                 var deleted = await toDoTaskService.DeleteAsync(id).ConfigureAwait(false);
                 return Ok(deleted);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return BadRequest("Error occured at deleting data.");
             }
         }
+
+        /// <summary>
+        /// Set todo task done.
+        /// </summary>
+        /// <param name="id">The todo id.</param>
+        /// <returns></returns>
+        [HttpPost("{id}")]
+        public async Task<IActionResult> SetDoneAsync(int id)
+        {
+            try
+            {
+                var updated = await toDoTaskService.SetTodoTaskDone(id).ConfigureAwait(false);
+                return this.Ok(updated);
+            }
+            catch (Exception)
+            {
+                return this.BadRequest("Error occured at data updating.");
+            }
+        }
+
     }
 }

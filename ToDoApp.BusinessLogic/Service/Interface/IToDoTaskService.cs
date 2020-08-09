@@ -14,6 +14,13 @@ namespace ToDoApp.BusinessLogic.Service.Interface
         /// </summary>
         /// <param name="listQueryType">The query type.</param>
         /// <returns></returns>
-        Task<IEnumerable<ToDoTask>> QueryByType(ListQueryType listQueryType);
+        Task<IEnumerable<ToDoTask>> QueryByTypeAsync(ListQueryType listQueryType);
+
+        /// <summary>
+        /// Set todo task done.
+        /// </summary>
+        /// <param name="id">The todo id.</param>
+        /// <returns></returns>
+        Task<ToDoTask> SetTodoTaskDone(int id);
     }
 }

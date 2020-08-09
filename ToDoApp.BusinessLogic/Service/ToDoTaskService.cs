@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using ToDoApp.BusinessEntity.Model;
 using ToDoApp.BusinessLogic.Service.Interface;
@@ -30,7 +31,7 @@ namespace ToDoApp.BusinessLogic.Service
         /// </summary>
         /// <param name="listQueryType">The query type.</param>
         /// <returns></returns>
-        public async Task<IEnumerable<ToDoTask>> QueryByType(ListQueryType listQueryType)
+        public async Task<IEnumerable<ToDoTask>> QueryByTypeAsync(ListQueryType listQueryType)
         {
             var result = new List<ToDoTask>();
 
@@ -59,6 +60,25 @@ namespace ToDoApp.BusinessLogic.Service
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Set todo task done.
+        /// </summary>
+        /// <param name="id">The todo id.</param>
+        /// <returns></returns>
+        public async Task<ToDoTask> SetTodoTaskDone(int id)
+        {
+            var entity = await this.GetByIdAsync(id).ConfigureAwait(false);
+
+            if (entity == null)
+            {
+                throw new NullReferenceException(nameof(entity));
+            }
+
+            entity.SetDone();
+
+            return await this.UpdateAsync(entity).ConfigureAwait(false);
         }
     }
 }
