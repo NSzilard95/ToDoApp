@@ -12,18 +12,13 @@ namespace ToDoApp.BusinessLogic.Service
     public class ToDoTaskService : BaseService<ToDoTask>, IToDoTaskService
     {
         /// <summary>
-        /// The todo task repository.
-        /// </summary>
-        private readonly IRepository<ToDoTask> repository;
-
-        /// <summary>
         /// The constructor.
         /// </summary>
         /// <param name="repository">The todo task repository.</param>
         public ToDoTaskService(IRepository<ToDoTask> repository)
             : base(repository)
         {
-            this.repository = repository;
+
         }
 
         /// <summary>
@@ -67,7 +62,7 @@ namespace ToDoApp.BusinessLogic.Service
         /// </summary>
         /// <param name="id">The todo id.</param>
         /// <returns></returns>
-        public async Task<ToDoTask> SetTodoTaskDone(int id)
+        public async Task<ToDoTask> SetTodoTaskDoneAsync(int id)
         {
             var entity = await this.GetByIdAsync(id).ConfigureAwait(false);
 

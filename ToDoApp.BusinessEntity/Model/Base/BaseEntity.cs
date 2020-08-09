@@ -18,7 +18,7 @@
         /// <summary>
         /// Delete entity logically.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Entity.</returns>
         public virtual BaseEntity Delete()
         {
             IsDeleted = true;

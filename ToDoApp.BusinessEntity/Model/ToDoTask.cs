@@ -20,10 +20,10 @@ namespace ToDoApp.BusinessEntity.Model
         /// <summary>
         /// Set todo task done.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Entity.</returns>
         public ToDoTask SetDone()
         {
-            this.IsDone = true;
+            IsDone = true;
 
             return this;
         }

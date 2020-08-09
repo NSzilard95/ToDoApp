@@ -76,7 +76,7 @@ namespace ToDoApp.WebServer.Controllers
             try
             {
                 var addedEntity = await toDoTaskService.AddAsync(entity).ConfigureAwait(false);
-                return this.Ok(addedEntity);
+                return Ok(addedEntity);
             }
             catch (Exception)
             {
@@ -95,7 +95,7 @@ namespace ToDoApp.WebServer.Controllers
             try
             {
                 var updatedEntity = await toDoTaskService.UpdateAsync(entity).ConfigureAwait(false);
-                return this.Ok(updatedEntity);
+                return Ok(updatedEntity);
             }
             catch (Exception)
             {
@@ -132,12 +132,12 @@ namespace ToDoApp.WebServer.Controllers
         {
             try
             {
-                var updated = await toDoTaskService.SetTodoTaskDone(id).ConfigureAwait(false);
-                return this.Ok(updated);
+                var updated = await toDoTaskService.SetTodoTaskDoneAsync(id).ConfigureAwait(false);
+                return Ok(updated);
             }
             catch (Exception)
             {
-                return this.BadRequest("Error occured at data updating.");
+                return BadRequest("Error occured at data updating.");
             }
         }
 

@@ -21,6 +21,6 @@ namespace ToDoApp.BusinessLogic.Service.Interface
         /// </summary>
         /// <param name="id">The todo id.</param>
         /// <returns></returns>
-        Task<ToDoTask> SetTodoTaskDone(int id);
+        Task<ToDoTask> SetTodoTaskDoneAsync(int id);
     }
 }

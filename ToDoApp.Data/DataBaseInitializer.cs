@@ -1,18 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
+using System.Collections.Generic;
 using ToDoApp.BusinessEntity.Model;
 
 namespace ToDoApp.Data
 {
     /// <summary>
-    /// The database initializer helper.
+    /// The database initializer helper class.
     /// </summary>
     public static class DataBaseInitializer
     {
         /// <summary>
-        /// Database initializer.
+        /// Database initializer method.
         /// </summary>
-        /// <param name="context"></param>
+        /// <param name="context">The database context.</param>
         public static void InitDefaultDatas(this ToDoAppDataBase context)
         {
             if (context.ToDoTasks.Count() < 1)
